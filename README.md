@@ -98,7 +98,7 @@ TEY is energy yield, not thermal efficiency. NOX accuracy is limited: the final 
 
 ## GitHub Pages
 
-Push to `main` at `https://github.com/devraj07/gas_turbine_es335`, then select **Settings > Pages > Source > GitHub Actions**. The included workflow verifies files, packages `.pages/`, uploads it and deploys it. Intended URL: `https://devraj07.github.io/gas_turbine_es335/`; availability depends on a successful Pages deployment. No server backend, API key or runtime Python is required.
+Select **Settings > Pages > Source > GitHub Actions**, then push to `main` at `https://github.com/devraj07/gas_turbine_es335` or open **Actions > Deploy research website to GitHub Pages > Run workflow > main**. The workflow copies the 12 original notebooks into the website download directory, verifies the site, and uploads only `website/`. Its `index.html` becomes the artifact root entry point; the repository README is not published as the homepage. Do not select **Deploy from a branch** with the repository root, which lets the default Jekyll build publish repository documentation. The local `.pages/` packaging utility remains available for previews. Intended URL: `https://devraj07.github.io/gas_turbine_es335/`; availability depends on a successful Pages deployment. No server backend, API key or runtime Python is required.
 
 ## AI-use disclosure
 
