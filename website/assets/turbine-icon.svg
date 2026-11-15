@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Gas turbine rotor</title>
+  <rect width="64" height="64" rx="14" fill="#fff"/>
+  <circle cx="32" cy="32" r="25" fill="none" stroke="#145b3b" stroke-width="4"/>
+  <g fill="#145b3b">
+    <path id="blade" d="M29 26C23 19 27 12 37 11L35 24Z"/>
+    <use href="#blade" transform="rotate(72 32 32)"/>
+    <use href="#blade" transform="rotate(144 32 32)"/>
+    <use href="#blade" transform="rotate(216 32 32)"/>
+    <use href="#blade" transform="rotate(288 32 32)"/>
+    <circle cx="32" cy="32" r="7"/>
+  </g>
+  <circle cx="32" cy="32" r="2.5" fill="#fff"/>
+</svg>

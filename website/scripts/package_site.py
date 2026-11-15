@@ -9,7 +9,7 @@ SITE = ROOT / 'website'
 DEST = ROOT / '.pages'
 FILES = [
     'index.html', 'predict/index.html', '404.html', '.nojekyll',
-    'assets/favicon.svg', 'assets/css/style.css',
+    'assets/turbine-icon.svg', 'assets/css/style.css',
     'assets/js/app.js', 'assets/js/predict.js', 'assets/js/inference.js',
     'assets/data/analysis.json', 'assets/data/research.json', 'assets/data/notebook-methods.json', 'assets/data/references.json',
     'assets/data/audit.json', 'assets/data/provenance.json',
