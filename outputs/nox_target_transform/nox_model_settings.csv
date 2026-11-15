@@ -1,0 +1,8 @@
+Item,Value
+Selected model,Log Ridge Regression
+Training period for validation,2011–2013
+Validation period,2014
+Final development period,2011–2014
+Comparison period,2015
+Polynomial degree,2
+Ridge alpha,10.0

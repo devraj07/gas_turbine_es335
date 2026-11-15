@@ -1,0 +1,9 @@
+Item,Value
+Target,NOX
+Development period,2011–2014
+Comparison period,2015
+Validation,"Chronological holdout: train 2011–2013, validate 2014"
+SVR tuning sample limit,6000
+Final SVR training sample limit,8000
+Best SVR parameters,"{'svr__C': 1, 'svr__epsilon': 0.1, 'svr__gamma': 0.01}"
+Best 2014 validation RMSE,10.13718285781887

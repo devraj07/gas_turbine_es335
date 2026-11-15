@@ -1,0 +1,9 @@
+﻿# Versions used to prepare the browser models and detailed analysis
+numpy==2.4.6
+pandas==3.0.3
+scipy==1.17.1
+scikit-learn==1.9.0
+# Notebook visualization and interactive execution
+matplotlib==3.10.9
+seaborn==0.13.2
+jupyterlab

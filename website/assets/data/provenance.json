@@ -1,0 +1,36 @@
+{
+  "sources_sha256": {
+    "data/gt_2011.csv": "d87ceef9aa59533cc7d924d10de241b1b06ecd11f9b26bab59191ea0f8a76b9a",
+    "data/gt_2012.csv": "be54b9d0e1a7de40c55d32fa489e75de892b000c066b5a09f09a19124ee29100",
+    "data/gt_2013.csv": "13c437bb440ec2045bd12057e6654c41dd4107a661eac16ba2e878e897a08f9e",
+    "data/gt_2014.csv": "c2a03c92c9c3207aad0c6be7de8d9b5b4bfa4720ad0efb2c1f21b6cec4d3f3fa",
+    "data/gt_2015.csv": "9b08f35fde0d4b138232a605db4093c2b8bf9d6757e6f1fbd9534ad616c13591",
+    "outputs/all_models_comparison.csv": "ac9609f5c340e4d90da1d90b28d3da846df3e97feff4e40b909fe74417337cc9",
+    "outputs/final_project_synthesis/final_selected_model_performance.csv": "357f2954b38abbe23ae7e7c19edbd5161a0ad2b9d96228ef7af1268e2e443725",
+    "outputs/eda_correlation_matrix.csv": "a4595fc5ccd64eec57a40fe59d719db897c69350ecbd1adf9a820ece541d0ee0",
+    "outputs/final_project_synthesis/nox_feature_shift_summary.csv": "c72ac435da0eedcd45d10c6c88663e42cae258ccf61400e74e23b0ccdc1e6d7b",
+    "outputs/unsupervised/kmeans_silhouette_results.csv": "4bdb06e77386a8b85310864e004a3b14929225af591aea0028762ce4cc655dca",
+    "outputs/unsupervised/clustering_comparison.csv": "b9c29670eb7272cda9790d74d3add5ce857a20badfe911a4231d81e784c1c45f",
+    "outputs/unsupervised/year_wise_cluster_distribution.csv": "3c56e9d88ce823002f1154dc1d9ae6160a92bd840da820b5fbd6f913e99f39d7",
+    "outputs/multi_objective_optimization/pareto_representative_solutions.csv": "25f2967e1feb5289310bafc5eda6118b51ebda7dca640a06e9c0454cd487e40b",
+    "outputs/multi_objective_optimization/pareto_optimal_operating_points.csv": "aeff6c0514f5c57e4a7ebb7bc85b337ac373532f4aa4330b8d5af213a1ff1ee0",
+    "outputs/nox_svr/nox_model_comparison_2015.csv": "3221b977c559029c69087c99292595819a9e2b537decd1202b34cc0d4bdc1f4f",
+    "outputs/nox_target_transform/nox_validation_model_comparison_2014.csv": "2ddeb7fe89893165de090e50a8df3303f638947dff72899416fec2486405110c",
+    "outputs/nox_target_transform/nox_selected_model_2015_metrics.csv": "c8605aaa6b178dc2f3633406486ddf7f088cd05a09dd91d09a8f59965a0d7c70",
+    "outputs/nox_residual_feature_shift/over_under_prediction_summary.csv": "349d72650e35fb6710b64d1f4dc3674a9fcabaaf4b54fc6d540fff995d8e2b20",
+    "outputs/final_project_synthesis/project_limitations.csv": "b25e31479fed8e59558d09ffc11b135626b53b55910c4f7dfebbe4a84c14308f",
+    "outputs/multi_objective_optimization/optimization_candidate_predictions.csv": "d6b4aa31b9df65c850ce7d85c8a5d737a95c91de8510608e5842f34db7709e37",
+    "outputs/random_forest_2015_predictions.csv": "90112883f63624f79ccb3afdcb3e5d5684c118217579c72f63669fe097e842de",
+    "outputs/gradient_boosting_2015_predictions.csv": "9640fec416f869d50c2a4cb6b8321497c1514801c4e684bb34ee2b26a80f8321",
+    "outputs/baseline_2015_predictions.csv": "a750a72042f4a8536266ebddfbc0ee6cc4f956c99f7cac6fad92d2cb3593f9a3",
+    "outputs/nox_residual_feature_shift/linear_regression_2015_residuals.csv": "db6dc4252533d6d41f145d194c13d306e2a32cacb59ce2e6c9455b1ac9fce20c",
+    "outputs/unsupervised/kmeans_cluster_profiles.csv": "0a1d661ee16337b29a0c35f82866bcf4f0a85905e7e3c36a367cd3e2a445be92",
+    "outputs/unsupervised/kmeans_feature_profiles.csv": "d7be32f81a1230be1f894aef81880176eb75d1120a3c38c449295e1cae61c105"
+  },
+  "sampling": {
+    "observations": "Every 40th row per year",
+    "predictions": "Every 10th row",
+    "candidates": "Every 12th row, plus all Pareto points separately"
+  },
+  "aggregations": "30 equal-width histogram bins; arithmetic yearly means; no model fitting"
+}

@@ -1,0 +1,8 @@
+Area,Finding
+TEY prediction,Random Forest is selected because it achieved the lowest MAE among the compared models.
+CO prediction,Gradient Boosting is selected because it achieved the lowest MAE among the compared models.
+NOX prediction,"Linear Regression is selected because it achieved the lowest MAE among the compared models, but its predictive performance is limited."
+NOX distribution,"Mean NOX decreases from approximately 67.58 in 2011 to 59.89 in 2015. This is an observed year-wise difference, not proof of its cause."
+Operating regimes,"K-Means describes historical operating groups. The clusters should not be interpreted as safe, optimal, or causal regimes."
+Multi-objective optimization,"Pareto analysis identifies trade-offs among predicted TEY, CO, and NOX for the evaluated historical candidate conditions. Pareto optimality is relative to the candidate set and models."
+Model limitations,The models learn observational relationships. Their predictions do not establish causal effects of changing operating parameters and do not validate turbine setpoints.

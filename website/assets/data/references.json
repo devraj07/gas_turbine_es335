@@ -1,0 +1,226 @@
+[
+  {
+    "number": 1,
+    "author": "UCI Machine Learning Repository",
+    "year": "2019",
+    "title": "Gas Turbine CO and NOx Emission Data Set",
+    "source": "UCI; DOI 10.24432/C5WC95; CC BY 4.0",
+    "url": "https://archive.ics.uci.edu/dataset/551/gas+turbine+co+and+nox+emission+data+set"
+  },
+  {
+    "number": 2,
+    "author": "Kaya, H.; Tufekci, P.; Uzun, E.",
+    "year": "2019",
+    "title": "Predicting CO and NOx emissions from gas turbines: novel data and a benchmark PEMS",
+    "source": "Turkish Journal of Electrical Engineering and Computer Sciences 27(6), 4783-4796",
+    "url": "https://journals.tubitak.gov.tr/elektrik/vol27/iss6/53/"
+  },
+  {
+    "number": 3,
+    "author": "Breiman, L.",
+    "year": "2001",
+    "title": "Random Forests",
+    "source": "Machine Learning 45, 5-32",
+    "url": "https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf"
+  },
+  {
+    "number": 4,
+    "author": "Friedman, J. H.",
+    "year": "2001",
+    "title": "Greedy function approximation: A gradient boosting machine",
+    "source": "Annals of Statistics 29(5), 1189-1232",
+    "url": "https://doi.org/10.1214/aos/1013203451"
+  },
+  {
+    "number": 5,
+    "author": "Hoerl, A. E.; Kennard, R. W.",
+    "year": "1970",
+    "title": "Ridge Regression: Biased Estimation for Nonorthogonal Problems",
+    "source": "Technometrics 12(1), 55-67",
+    "url": "https://homepages.math.uic.edu/~lreyzin/papers/ridge.pdf"
+  },
+  {
+    "number": 6,
+    "author": "Drucker, H.; Burges, C. J. C.; Kaufman, L.; Smola, A.; Vapnik, V.",
+    "year": "1996",
+    "title": "Support Vector Regression Machines",
+    "source": "Advances in Neural Information Processing Systems 9",
+    "url": "https://proceedings.neurips.cc/paper/1996/hash/d38901788c533e8286cb6400b40b386d-Abstract.html"
+  },
+  {
+    "number": 7,
+    "author": "MacQueen, J.",
+    "year": "1967",
+    "title": "Some methods for classification and analysis of multivariate observations",
+    "source": "Proceedings of the Fifth Berkeley Symposium, Volume I, 281-297",
+    "url": "https://digicoll.lib.berkeley.edu/record/113015"
+  },
+  {
+    "number": 8,
+    "author": "Ester, M.; Kriegel, H.-P.; Sander, J.; Xu, X.",
+    "year": "1996",
+    "title": "A Density-Based Algorithm for Discovering Clusters in Large Spatial Databases with Noise",
+    "source": "KDD-96, 226-231",
+    "url": "https://cdn.aaai.org/KDD/1996/KDD96-037.pdf"
+  },
+  {
+    "number": 9,
+    "author": "Miettinen, K.",
+    "year": "1999",
+    "title": "Nonlinear Multiobjective Optimization",
+    "source": "Kluwer Academic Publishers, Boston; author bibliography",
+    "url": "https://users.jyu.fi/~miettine/publ.html"
+  },
+  {
+    "number": 10,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "Linear models: ordinary least squares and Ridge",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/linear_model.html"
+  },
+  {
+    "number": 11,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "RandomForestRegressor",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html"
+  },
+  {
+    "number": 12,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "GradientBoostingRegressor",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html"
+  },
+  {
+    "number": 13,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "SVR",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.svm.SVR.html"
+  },
+  {
+    "number": 14,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "Clustering: K-Means and DBSCAN",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/clustering.html"
+  },
+  {
+    "number": 15,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "StandardScaler",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html"
+  },
+  {
+    "number": 16,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "TimeSeriesSplit",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html"
+  },
+  {
+    "number": 17,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "mean_absolute_error",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html"
+  },
+  {
+    "number": 18,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "root_mean_squared_error",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.root_mean_squared_error.html"
+  },
+  {
+    "number": 19,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "r2_score",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html"
+  },
+  {
+    "number": 20,
+    "author": "scikit-learn developers",
+    "year": "n.d.",
+    "title": "silhouette_score (including Rousseeuw, 1987 reference)",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html"
+  },
+  {
+    "number": 21,
+    "author": "pandas developers",
+    "year": "n.d.",
+    "title": "DataFrame.describe",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.describe.html"
+  },
+  {
+    "number": 22,
+    "author": "pandas developers",
+    "year": "n.d.",
+    "title": "DataFrame.corr",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.corr.html"
+  },
+  {
+    "number": 23,
+    "author": "NumPy developers",
+    "year": "n.d.",
+    "title": "numpy.histogram",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://numpy.org/doc/stable/reference/generated/numpy.histogram.html"
+  },
+  {
+    "number": 24,
+    "author": "Matplotlib developers",
+    "year": "n.d.",
+    "title": "matplotlib.pyplot.subplots",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html"
+  },
+  {
+    "number": 25,
+    "author": "SciPy developers",
+    "year": "n.d.",
+    "title": "ks_2samp",
+    "source": "Method documentation; accessed 15 November 2026",
+    "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html"
+  },
+  {
+    "number": 26,
+    "author": "seaborn developers",
+    "year": "n.d.",
+    "title": "histplot",
+    "source": "seaborn 0.13.2 method documentation; accessed 15 November 2026",
+    "url": "https://seaborn.pydata.org/generated/seaborn.histplot.html"
+  },
+  {
+    "number": 27,
+    "author": "NIST/SEMATECH",
+    "year": "n.d.",
+    "title": "Box Plot: fences and outlier screening",
+    "source": "e-Handbook of Statistical Methods; accessed 15 November 2026",
+    "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/boxplot.htm"
+  },
+  {
+    "number": 28,
+    "author": "statsmodels developers",
+    "year": "n.d.",
+    "title": "variance_inflation_factor",
+    "source": "Method documentation; diagnostic definition only, not a project dependency; accessed 15 November 2026",
+    "url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.outliers_influence.variance_inflation_factor.html"
+  }
+]

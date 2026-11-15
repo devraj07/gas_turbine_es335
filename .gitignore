@@ -1,0 +1,47 @@
+﻿# Local environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+
+# Local configuration, credentials and editor state
+.env
+.env.*
+!.env.example
+.aws/
+.codex/
+.agents/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.tmp
+*.bak
+
+# Generated plots: retain CSV results and original notebooks instead
+outputs/**/*.png
+outputs/**/*.jpg
+outputs/**/*.svg
+outputs/**/*.pdf
+
+# Regenerable local duplicates, archives and deployment staging
+website/assets/notebooks/
+website/assets/data/reproduction-bundle.zip
+website/assets/data/final_selected_model_performance.csv
+website/assets/data/pareto_optimal_operating_points.csv
+website/assets/data/pareto_representative_solutions.csv
+.pages/
+dist/
+build/
+*.zip
+
+# Currently unused folder
+/src/

@@ -1,0 +1,11 @@
+﻿* text=auto
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.cjs text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+# Source hashes use the exact original bytes: do not normalize scientific files.
+*.csv -text
+*.ipynb -text
+*.json -text

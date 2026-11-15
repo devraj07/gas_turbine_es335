@@ -1,0 +1,10 @@
+Project limitation
+The dataset is observational; model relationships are not causal effects.
+TEY represents energy yield/output and is not thermal efficiency.
+The dataset does not provide the fuel-energy input needed to calculate thermal efficiency.
+NOX prediction is weak on the 2015 comparison data (R-squared approximately 0.158).
+NOX residual analysis showed systematic overprediction in the 2015 comparison data.
+"Feature distributions differ across years, especially NOX and TIT."
+"The 2015 dataset has been examined in prior experiments; it should be called a comparison set, not an untouched test set."
+"Pareto solutions are model-supported candidates, not experimentally validated or safe operating setpoints."
+The optimization explores historical feature combinations and does not demonstrate dynamic process control.
