@@ -16,15 +16,39 @@ setImmediate(()=>{
  try{
   assert.equal(errors.length,0);
   assert.equal(node('predict-button').disabled,false);
-  assert.ok(!/\s(?:min|max)=/.test(node('model-inputs').innerHTML),'Training ranges must not block new inputs');
+  const numberFields=node('model-inputs').innerHTML.match(/<input[^>]*type="number"[^>]*>/g);
+  assert.equal(numberFields.length,8);
+  assert.ok(numberFields.every(field=>!/\s(?:min|max)=/.test(field)),'Numeric fields must allow extrapolation');
+  assert.equal((node('model-inputs').innerHTML.match(/type="range"/g)||[]).length,8);
   const submit=()=>node('predict-form').handlers.submit({preventDefault(){}});
   const verify=()=>{const values=bundle.features.map(f=>Number(node('input-'+f).value));const expected=inference.predict(bundle,values);for(const t of ['TEY','CO','NOX'])assert.equal(node('result-'+t).textContent,expected[t].toFixed(3));};
   verify();
+  for(const feature of bundle.features){
+   node('slider-'+feature).value=String(bundle.ranges[feature].min);
+   node('slider-'+feature).handlers.input();
+   assert.equal(node('input-'+feature).value,node('slider-'+feature).value);verify();
+   node('input-'+feature).value=String(bundle.ranges[feature].max);
+   node('input-'+feature).handlers.input();
+   assert.equal(node('slider-'+feature).value,node('input-'+feature).value);verify();
+   node('response-feature').value=feature;node('response-feature').handlers.change();
+   for(const target of ['TEY','CO','NOX']){
+    const svg=node('response-'+target).innerHTML;
+    assert.ok(svg.includes('<polyline')&&svg.includes('<circle'));
+    assert.ok(svg.includes(`response to ${feature}`));
+    assert.ok(!/NaN|Infinity|undefined/.test(svg));
+    const input=bundle.features.map(f=>Number(node('input-'+f).value));
+    const index=bundle.features.indexOf(feature),r=bundle.ranges[feature];
+    const samples=Array.from({length:21},(_,i)=>{const row=input.slice();row[index]=r.min+(r.max-r.min)*i/20;return inference.predict(bundle,row)[target];});
+    samples.push(inference.predict(bundle,input)[target]);
+    const formatted=Number(Math.max(...samples)).toLocaleString('en-US',{maximumFractionDigits:4});
+    assert.ok(svg.includes(formatted),'Response range must come from actual model predictions');
+   }
+  }
   for(const kind of ['min','max']){for(const f of bundle.features)node('input-'+f).value=String(bundle.ranges[f][kind]);submit();verify();}
   node('input-AT').value='-10';submit();verify();assert.match(node('predict-status').textContent,/Outside training ranges: AT/);
   node('input-AT').value='';submit();assert.match(node('predict-status').textContent,/finite number/);assert.equal(node('result-TEY').textContent,'-');
   node('input-AT').value='Infinity';submit();assert.match(node('predict-status').textContent,/finite number/);
   node('reset-inputs').handlers.click();verify();assert.match(node('predict-status').textContent,/Predictions updated/);
-  console.log('PASS: prediction form uses submitted values, accepts extrapolation with a warning, rejects blank/non-finite values and resets correctly.');
+  console.log('PASS: eight bidirectional sliders; all eight response-graph selectors match fitted-model ranges; exact submitted predictions, extrapolation warnings, invalid values and reset.');
  }catch(e){console.error(e);process.exitCode=1;}
 });
