@@ -15,7 +15,9 @@ vm.runInNewContext(code,{document:{getElementById:node},TurbineInference:inferen
 setImmediate(()=>{
  try{
   assert.equal(errors.length,0);
-  assert.equal(node('predict-button').disabled,false);
+  assert.ok(!fs.readFileSync(path.join(root,'predict/index.html'),'utf8').includes('id="predict-button"'));
+  assert.equal(node('response-feature').disabled,false);
+  assert.ok(!/[^\x00-\x7F]/.test(node('response-feature').innerHTML),'Selector labels must have clean encoding');
   const numberFields=node('model-inputs').innerHTML.match(/<input[^>]*type="number"[^>]*>/g);
   assert.equal(numberFields.length,8);
   assert.ok(numberFields.every(field=>!/\s(?:min|max)=/.test(field)),'Numeric fields must allow extrapolation');
@@ -26,9 +28,13 @@ setImmediate(()=>{
   for(const feature of bundle.features){
    node('slider-'+feature).value=String(bundle.ranges[feature].min);
    node('slider-'+feature).handlers.input();
+   assert.equal(node('response-feature').value,feature);
+   for(const target of ['TEY','CO','NOX'])assert.ok(node('response-'+target).innerHTML.includes(`response to ${feature}`));
    assert.equal(node('input-'+feature).value,node('slider-'+feature).value);verify();
    node('input-'+feature).value=String(bundle.ranges[feature].max);
+   node('response-feature').value=bundle.features.find(f=>f!==feature);
    node('input-'+feature).handlers.input();
+   assert.equal(node('response-feature').value,feature);
    assert.equal(node('slider-'+feature).value,node('input-'+feature).value);verify();
    node('response-feature').value=feature;node('response-feature').handlers.change();
    for(const target of ['TEY','CO','NOX']){

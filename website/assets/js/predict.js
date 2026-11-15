@@ -39,13 +39,13 @@ function runPrediction(event){
 function reset(){for(const f of bundle.features){el('input-'+f).value=bundle.ranges[f].default;el('slider-'+f).value=bundle.ranges[f].default;}runPrediction();}
 fetch('../assets/data/browser-models.json').then(r=>{if(!r.ok)throw Error('Model download failed. Reload to try again.');return r.json();}).then(d=>{
  bundle=d;el('model-inputs').innerHTML=d.features.map(f=>{const r=d.ranges[f];return `<div class="input-field"><label for="input-${f}"><b>${f}</b>${fieldNames[f]}</label><input id="input-${f}" name="${f}" type="number" step="any" value="${r.default}" required aria-describedby="range-${f}"><input id="slider-${f}" type="range" min="${r.min}" max="${r.max}" step="any" value="${r.default}" aria-label="${fieldNames[f]} slider" aria-describedby="range-${f}"><small id="range-${f}">Training: ${number(r.min)} - ${number(r.max)}</small></div>`;}).join('');
- el('response-feature').innerHTML=d.features.map(f=>`<option value="${f}">${f} â€” ${fieldNames[f]}</option>`).join('');el('response-feature').value='TIT';
+ el('response-feature').innerHTML=d.features.map(f=>`<option value="${f}">${f} - ${fieldNames[f]}</option>`).join('');el('response-feature').value='TIT';
  for(const f of d.features){
-  el('slider-'+f).addEventListener('input',()=>{el('input-'+f).value=el('slider-'+f).value;runPrediction();});
-  el('input-'+f).addEventListener('input',()=>{const value=Number(el('input-'+f).value);if(Number.isFinite(value))el('slider-'+f).value=Math.max(d.ranges[f].min,Math.min(d.ranges[f].max,value));runPrediction();});
+  el('slider-'+f).addEventListener('input',()=>{el('input-'+f).value=el('slider-'+f).value;el('response-feature').value=f;runPrediction();});
+  el('input-'+f).addEventListener('input',()=>{const value=Number(el('input-'+f).value);if(Number.isFinite(value))el('slider-'+f).value=Math.max(d.ranges[f].min,Math.min(d.ranges[f].max,value));el('response-feature').value=f;runPrediction();});
  }
  el('response-feature').addEventListener('change',()=>runPrediction());
- el('response-feature').disabled=false;el('predict-button').disabled=false;el('predict-button').textContent='Predict outputs';el('reset-inputs').disabled=false;
+ el('response-feature').disabled=false;el('reset-inputs').disabled=false;
  el('predict-form').addEventListener('submit',runPrediction);el('reset-inputs').addEventListener('click',reset);
  reset();
-}).catch(e=>{status(e.message,true);el('predict-button').textContent='Models unavailable';});
+}).catch(e=>{status(e.message,true);});
