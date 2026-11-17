@@ -4,7 +4,7 @@ from html.parser import HTMLParser
 import json
 from pathlib import Path
 import sys
-from urllib.parse import unquote, urljoin
+from urllib.parse import urlsplit, unquote, urljoin
 from urllib.request import urlopen
 ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT/'website'
@@ -21,7 +21,7 @@ assert len(p.ids)==len(set(p.ids)), 'Duplicate IDs'
 for link in p.links:
     if link.startswith('#'): assert link[1:] in p.ids,link
     elif not link.startswith(('https:','http:')):
-        target=SITE/unquote(link)
+        target=SITE/unquote(urlsplit(link).path)
         assert target.is_file() or (target/'index.html').is_file(),link
 manifest=json.loads((SITE/'assets/data/provenance.json').read_text())
 for path,digest in manifest['sources_sha256'].items():
@@ -39,7 +39,7 @@ q=Links();q.feed((SITE/'predict/index.html').read_text(encoding='utf-8-sig'))
 for link in q.links:
     if link.startswith('#'): assert link[1:] in q.ids,link
     elif not link.startswith(('https:','http:')):
-        target=SITE/'predict'/unquote(link)
+        target=SITE/'predict'/unquote(urlsplit(link).path)
         assert target.is_file() or (target/'index.html').is_file(),link
 assert 'Reproduce the experiments' not in (SITE/'index.html').read_text(encoding='utf-8-sig')
 analysis=json.loads((SITE/'assets/data/analysis.json').read_text())

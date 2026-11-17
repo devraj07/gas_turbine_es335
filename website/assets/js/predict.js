@@ -1,5 +1,6 @@
 'use strict';
 const fieldNames={AT:'Ambient temperature',AP:'Ambient pressure',AH:'Ambient humidity',AFDP:'Air filter differential pressure',GTEP:'Turbine exhaust pressure',TIT:'Turbine inlet temperature',TAT:'Turbine after temperature',CDP:'Compressor discharge pressure'};
+const fieldUnits={AT:'deg C',AP:'mbar',AH:'%',AFDP:'mbar',GTEP:'mbar',TIT:'deg C',TAT:'deg C',CDP:'mbar'};
 const el=id=>document.getElementById(id);
 let bundle;
 const number=v=>Number(v).toLocaleString('en-US',{maximumFractionDigits:4});
@@ -20,7 +21,7 @@ function renderResponses(input,values){
 function runPrediction(event){
  if(event)event.preventDefault();
  if(!bundle)return;
- if(!el('predict-form').reportValidity()){
+ if(!el('predict-form').checkValidity()){
   for(const t of ['TEY','CO','NOX']){el('result-'+t).textContent='-';el('response-'+t).innerHTML='';}
   status('Enter a valid number for every input.',true);return;
  }
@@ -38,11 +39,11 @@ function runPrediction(event){
 }
 function reset(){for(const f of bundle.features){el('input-'+f).value=bundle.ranges[f].default;el('slider-'+f).value=bundle.ranges[f].default;}runPrediction();}
 fetch('../assets/data/browser-models.json').then(r=>{if(!r.ok)throw Error('Model download failed. Reload to try again.');return r.json();}).then(d=>{
- bundle=d;el('model-inputs').innerHTML=d.features.map(f=>{const r=d.ranges[f];return `<div class="input-field"><label for="input-${f}"><b>${f}</b>${fieldNames[f]}</label><input id="input-${f}" name="${f}" type="number" step="any" value="${r.default}" required aria-describedby="range-${f}"><input id="slider-${f}" type="range" min="${r.min}" max="${r.max}" step="any" value="${r.default}" aria-label="${fieldNames[f]} slider" aria-describedby="range-${f}"><small id="range-${f}">Training: ${number(r.min)} - ${number(r.max)}</small></div>`;}).join('');
+ bundle=d;el('model-inputs').innerHTML=d.features.map(f=>{const r=d.ranges[f];return `<div class="input-field"><label for="input-${f}"><b>${f}</b>${fieldNames[f]} <span class="input-unit">(${fieldUnits[f]})</span></label><input id="input-${f}" name="${f}" type="number" step="any" value="${r.default}" required aria-describedby="range-${f}"><input id="slider-${f}" type="range" min="${r.min}" max="${r.max}" step="any" value="${r.default}" aria-label="${fieldNames[f]} slider in ${fieldUnits[f]}" aria-describedby="range-${f}"><small id="range-${f}">Training: ${number(r.min)} - ${number(r.max)}</small></div>`;}).join('');
  el('response-feature').innerHTML=d.features.map(f=>`<option value="${f}">${f} - ${fieldNames[f]}</option>`).join('');el('response-feature').value='TIT';
  for(const f of d.features){
   el('slider-'+f).addEventListener('input',()=>{el('input-'+f).value=el('slider-'+f).value;el('response-feature').value=f;runPrediction();});
-  el('input-'+f).addEventListener('input',()=>{const value=Number(el('input-'+f).value);if(Number.isFinite(value))el('slider-'+f).value=Math.max(d.ranges[f].min,Math.min(d.ranges[f].max,value));el('response-feature').value=f;runPrediction();});
+  el('input-'+f).addEventListener('input',()=>{const value=Number(el('input-'+f).value);if(el('input-'+f).value.trim()!==''&&Number.isFinite(value))el('slider-'+f).value=Math.max(d.ranges[f].min,Math.min(d.ranges[f].max,value));el('response-feature').value=f;runPrediction();});
  }
  el('response-feature').addEventListener('change',()=>runPrediction());
  el('response-feature').disabled=false;el('reset-inputs').disabled=false;

@@ -7,7 +7,7 @@ const code=fs.readFileSync(path.join(root,'assets/js/predict.js'),'utf8');
 const nodes={};
 function node(id){return nodes[id]??=(
  {_value:'',get value(){return this._value;},set value(v){this._value=String(v);},textContent:'',innerHTML:'',disabled:true,handlers:{},classList:{toggle(){},remove(){},add(){}},
- addEventListener(type,fn){this.handlers[type]=fn;},reportValidity(){return true;}}
+ addEventListener(type,fn){this.handlers[type]=fn;},checkValidity(){return true;}}
 );}
 for(const f of bundle.features)node('input-'+f).value=String(bundle.ranges[f].default);
 const errors=[];
@@ -20,6 +20,8 @@ setImmediate(()=>{
   assert.ok(!/[^\x00-\x7F]/.test(node('response-feature').innerHTML),'Selector labels must have clean encoding');
   const numberFields=node('model-inputs').innerHTML.match(/<input[^>]*type="number"[^>]*>/g);
   assert.equal(numberFields.length,8);
+  assert.ok(node('model-inputs').innerHTML.includes('slider in mbar'));
+  assert.ok(node('model-inputs').innerHTML.includes('slider in deg C'));
   assert.ok(numberFields.every(field=>!/\s(?:min|max)=/.test(field)),'Numeric fields must allow extrapolation');
   assert.equal((node('model-inputs').innerHTML.match(/type="range"/g)||[]).length,8);
   const submit=()=>node('predict-form').handlers.submit({preventDefault(){}});

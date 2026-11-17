@@ -90,7 +90,7 @@ node website/scripts/check_prediction_form.cjs
 python website/scripts/package_site.py
 ```
 
-The preparation scripts read research CSVs and write website assets only. Hashes in provenance and analysis JSON record source bytes. All metric summaries use full comparison populations; scatter plots use disclosed deterministic subsampling. Node interaction tests use a simulated DOM, not a real browser rendering engine. Inference fixtures compare 50 Python predictions with JavaScript; form tests verify changed values, invalid input, out-of-range warnings and reset.
+The preparation scripts read research CSVs and write website assets only. Hashes in provenance and analysis JSON record source bytes. All metric summaries use full comparison populations; scatter plots use disclosed deterministic subsampling. Node interaction tests use a simulated DOM, not a real browser rendering engine. Inference fixtures compare 50 Python predictions with JavaScript; form tests verify all eight synchronized sliders, automatic graph selection, model response ranges, invalid input, out-of-range warnings and reset.
 
 ## Scientific limits
 

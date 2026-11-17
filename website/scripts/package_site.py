@@ -1,7 +1,7 @@
 """Package only deployable assets: python website/scripts/package_site.py."""
 from pathlib import Path
 from html.parser import HTMLParser
-from urllib.parse import unquote
+from urllib.parse import urlsplit, unquote
 import shutil
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -50,7 +50,7 @@ for page in [DEST / 'index.html', DEST / 'predict/index.html']:
     for link in parser.links:
         if link.startswith(('#', 'https:', 'http:')):
             continue
-        target = page.parent / unquote(link)
+        target = page.parent / unquote(urlsplit(link).path)
         assert target.is_file() or (target / 'index.html').is_file(), (page, link)
 files = [p for p in DEST.rglob('*') if p.is_file()]
 assert not any(p.name.lower().startswith('readme') or p.suffix == '.zip' for p in files)

@@ -28,9 +28,11 @@ This is a coverage and verification record, not a professor's grade or an assert
 - Source hashes, navigation targets, full-data saved metrics, histogram totals and conditional-error populations are checked by `validate.py`.
 - `check_interactions.cjs` exercises 415 control changes, all 56 Pareto selections, year/cluster/model controls, 23 SVG charts plus a correlation heatmap, and data-loading errors.
 - `check_predictor.cjs` compares 50 saved Python fixtures with JavaScript inference, including tree boundary behavior.
-- `check_prediction_form.cjs` checks submitted inputs, changed predictions, invalid entries, out-of-range warnings and reset behavior.
+- `check_prediction_form.cjs` checks all eight synchronized sliders, automatic graph selection, fitted-model response ranges, invalid entries, out-of-range warnings and reset behavior.
 - `package_site.py` checks the deployable file allowlist and internal asset paths, including notebook downloads.
 - References were checked against primary publications, the dataset repository and specific official method documentation on 15 November 2026. Rolling documentation versions may differ from pinned export packages.
 - Automated DOM checks do not verify pixels, mobile keyboard behavior or screen-reader operation. Real-browser visual/accessibility inspection could not be completed because the browser automation host was unavailable. A final desktop/mobile manual review is still required before submission.
-- GitHub Pages availability must be confirmed after repository push and successful deployment. An included workflow alone is not proof of a live site.
+- GitHub Pages was verified live after switching to direct website/ artifact deployment. The artifact root contains the interactive index.html; the nested prediction route, model JSON and notebook downloads were checked against source files. Subsequent edits are deployed through the same checked workflow.
 - The original historical environment is unknown; current export versions and this limitation are disclosed. Research notebooks were not all rerun during the website revision.
+
+Final submission review: 17 November 2026. Input units, automatic predictor documentation, keyboard focus indicators, reduced-motion support and print styling were refined. The browser automation host remains unavailable; live HTTP and scripted interaction verification do not replace a visual desktop/mobile review.
